@@ -1,0 +1,27 @@
+<h1>Search Cars</h1>
+
+  <label>Name</label>
+
+  <div class = "form-group">
+  <input [(ngModel)]="model"
+         name="model">
+  </div>
+  <div class="form-group">
+    <button class="btn" (click)="search()">Search</button>
+  </div>
+
+
+<table class="table table-striped">
+  <tr *ngFor="let c of cars" [ngStyle]="{ 'background-color': (c == selectedCar) ? 'orange' : ''  }">
+    <td>{{c.id}}</td>
+    <td>{{c.brand}}</td>
+    <td>{{c.model}}</td>
+    <td>{{c.kilometers}}</td>
+    <td><a (click)="select(c)">Auswählen</a></td>
+  </tr>
+</table>
+
+<pre>Warenkorb
+------------------------
+{{ selectedCar | json }}
+</pre>

@@ -5,12 +5,15 @@ import { AppComponent } from './app.component';
 import { FormsModule} from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpModule } from '@angular/http';
-import {BASE_URL} from './app.tokens';
+import {BASE_URL_CARS, BASE_URL_CUSTOMERS, BASE_URL_RENTEDCARS} from './app.tokens';
 
 import { HomeComponent } from './home/home.component';
+import {CarSearchModule} from "./car-search/car-search.module";
 
 
-const BASE_URL_FOR_PRODUCTION = "https://localhost:8080/";
+const BASE_URL_CARS_PRODUCTION = "https://localhost:8080/cars";
+const BASE_URL_CUSTOMERS_PRODUCTION = "https://localhost:8080/customers";
+const BASE_URL_RENTEDCARS_PRODUCTION = "https://localhost:8080/rentedcars";
 
 @NgModule({
   declarations: [
@@ -21,9 +24,13 @@ const BASE_URL_FOR_PRODUCTION = "https://localhost:8080/";
     BrowserModule,
     FormsModule,
     HttpModule,
-    AppRouterModule
+    AppRouterModule,
+    CarSearchModule
   ],
-  providers: [{provide: BASE_URL, useValue: BASE_URL_FOR_PRODUCTION}
+  providers: [{provide: BASE_URL_CARS, useValue: BASE_URL_CARS_PRODUCTION},
+    {provide:BASE_URL_CUSTOMERS, useValue: BASE_URL_CUSTOMERS_PRODUCTION},
+    {provide:BASE_URL_RENTEDCARS, useValue: BASE_URL_RENTEDCARS_PRODUCTION
+                }
 
   ],
   bootstrap: [ AppComponent ]
