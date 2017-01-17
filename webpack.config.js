@@ -59,6 +59,7 @@ var defaultConfig = {
   },
 
   devServer: {
+    port: 8081,
     historyApiFallback: true,
     watchOptions: { aggregateTimeout: 300, poll: 1000 },
     headers: {
