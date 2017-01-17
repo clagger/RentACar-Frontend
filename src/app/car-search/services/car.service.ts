@@ -25,7 +25,7 @@ export class CarService{
 
       let headers = new Headers();
       headers.set('Accept', 'application/json');
-      headers.set('Authorization', 'Basic admin:admin'); //basic auth
+      headers.set('Authorization', 'Basic ' + btoa('admin:admin')); //basic auth
 
     this
       .http
