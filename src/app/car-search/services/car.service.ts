@@ -18,18 +18,17 @@ export class CarService{
 
   }
 
-  public findByModel(model: string) : void {
+  public findByModel() : void {
       let url = this.baseUrl;
-      let search = new URLSearchParams();
-      search.set('model', model);
 
       let headers = new Headers();
       headers.set('Accept', 'application/json');
-      headers.set('Authorization', 'Basic ' + btoa('admin:admin')); //basic auth
+
+      //headers.set('Authorization', 'Basic ' + btoa('admin:admin')); //basic auth
 
     this
       .http
-      .get(url, {headers, search})
+      .get(url, {headers})
       .map(resp => resp.json())
       .subscribe(
         (cars) => {

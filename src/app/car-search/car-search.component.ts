@@ -22,11 +22,14 @@ export class CarSearchComponent {
   }
 
   search() : void {
-    this.carService.findByModel(this.model);
+    this.carService.findByModel();
+    let cars:Array<Car> = this.cars;
+    console.log(cars);
   }
 
   select(car: Car): void {
     this.selectedCar = car;
   }
+
 
 }
