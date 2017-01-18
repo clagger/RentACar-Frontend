@@ -11,8 +11,7 @@ import {CarService} from "./services/car.service";
 })
 
 export class CarSearchComponent {
-
-  public model :string;
+  public searchValue :string;
   public selectedCar: Car;
 
   constructor(private carService: CarService) {}
@@ -21,15 +20,12 @@ export class CarSearchComponent {
     return this.carService.cars;
   }
 
-  search() : void {
-    this.carService.findByModel();
-    let cars:Array<Car> = this.cars;
-    console.log(cars);
+  search(searchType:string) : void {
+    this.carService.findByModel(this.searchValue, searchType);
   }
 
   select(car: Car): void {
     this.selectedCar = car;
   }
-
 
 }

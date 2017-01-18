@@ -18,8 +18,14 @@ export class CarService{
 
   }
 
-  public findByModel() : void {
-      let url = this.baseUrl;
+  public findByModel(searchValue: string, searchType:string) : void {
+      let url = this.baseUrl+"/search/findBy"+searchType;
+
+
+
+
+      let search = new URLSearchParams();
+      search.set(searchType.charAt(0).toLowerCase()+searchType.slice(1), searchValue);
 
       let headers = new Headers();
       headers.set('Accept', 'application/json');
@@ -28,11 +34,11 @@ export class CarService{
 
     this
       .http
-      .get(url, {headers})
-      .map(resp => resp.json())
+      .get(url, {headers, search})
+      .map(resp => resp.json()["_embedded"]["cars"])
       .subscribe(
         (cars) => {
-          this.cars = cars;
+            this.cars = cars;
         },
         (err) => {
           console.error('Fehler beim Laden', err);

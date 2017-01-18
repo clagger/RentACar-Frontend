@@ -3,9 +3,9 @@ export interface Car {
   brand: string
   kilometers: number
   color: string
-  seat_number: number
-  construction_year: number
-  gas_type: string
+  seatNumber: number
+  constructionYear: number
+  gasType: string
   transmission: string
-  horse_power: number
+  horsePower: number
 }
