@@ -1,6 +1,6 @@
 import {Component} from "@angular/core";
 import {Car} from "../entities/car";
-import {CarService} from "./services/car.service";
+import {CarService} from "../services/car.service";
 /**
  * Created by Christian on 1/17/2017.
  */
@@ -21,9 +21,12 @@ export class CarSearchComponent {
   }
 
   search(searchType:string) : void {
-    this.carService.findByModel(this.searchValue, searchType);
+    this.carService.find(this.searchValue, searchType);
   }
 
+  findAll():void {
+    this.carService.findAll();
+  }
   select(car: Car): void {
     this.selectedCar = car;
   }

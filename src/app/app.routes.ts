@@ -1,5 +1,6 @@
 import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
+import {MyCarsComponent} from "./my-cars/my-cars.component";
 
 const APP_ROUTES: Routes = [
   {

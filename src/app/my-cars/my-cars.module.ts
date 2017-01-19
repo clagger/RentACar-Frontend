@@ -1,4 +1,7 @@
 /**
+ * Created by Christian on 1/19/2017.
+ */
+/**
  * Created by Christian on 1/17/2017.
  */
 
@@ -6,31 +9,33 @@
 import {NgModule} from "@angular/core";
 import {CommonModule} from "@angular/common";
 import {FormsModule} from "@angular/forms";
-import {CarSearchComponent} from "./car-search.component";
-
-import {CarSearchRouterModule} from "./car-search.routes";
 import {CarService} from "../services/car.service";
+import {MyCarsComponent} from "../my-cars/my-cars.component";
+import {MyCarsRouterModule} from "./my-cars.routes";
 import {CarCardComponent} from "../car-card/car-card.component";
+import {CarSearchModule} from "../car-search/car-search.module";
 import {SharedModule} from "../shared/shared.module";
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
-    CarSearchRouterModule,
+    MyCarsRouterModule,
     SharedModule
+
   ],
   declarations: [
-    CarSearchComponent
+    MyCarsComponent
+
   ],
   exports: [
-    CarSearchComponent
+    MyCarsComponent
   ],
   providers: [
     CarService
   ]
 })
 
-export  class CarSearchModule {
+export  class MyCarsModule {
 
 }
