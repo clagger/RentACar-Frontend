@@ -25,7 +25,14 @@ export class  MyCarsComponent {
     return this.carService.cars;
   }
 
-  delete(car:Car) {
-    this.rentedCarService.delete(car.id);
+  deleteEntry(car:Car) {
+    this.rentedCarService.getId(car.id);
+    let th: string = this.getRentedCarEntryId();
   }
+
+
+  getRentedCarEntryId(){
+    return this.rentedCarService.rentedCarId;
+  }
+
 }

@@ -1,6 +1,6 @@
 import {Component} from '@angular/core';
 import {Customer} from "../entities/customer";
-import {CustomerService} from "../customer-service/customer.service";
+import {CustomerService} from "../services/customer-service/customer.service";
 
 
 @Component({

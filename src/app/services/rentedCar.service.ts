@@ -1,17 +1,11 @@
-/**
- * Created by Christian on 1/19/2017.
- */
-
 import {Injectable, Inject} from "@angular/core";
 
 import {Http, URLSearchParams, Headers} from "@angular/http";
-import {Car} from "../entities/car";
 import {BASE_URL_RENTEDCARS} from "../app.tokens";
+import {Observable} from "rxjs";
 
 @Injectable()
 export class RentedCarService{
-
-  rentedCarId:string;
 
   constructor(
     @Inject(BASE_URL_RENTEDCARS) private baseUrl: string,
@@ -20,29 +14,29 @@ export class RentedCarService{
   }
 
 
-  delete(id:number):Promise<number>{
-    let url = this.baseUrl+"/search/findRentedCar?customer="+sessionStorage.getItem("customerID")+"&car="+id;
 
-    console.log(id+"b4");
+  rentedCarId:string;
+
+
+  getId(id:number): void {
+    let url = this.baseUrl + "/search/findRentedCar?customer=" + sessionStorage.getItem("customerID") + "&car=" + id;
+
+    console.log("Input id: " + id);
 
     let headers = new Headers();
     headers.set('Accept', 'application/json');
 
-    //headers.set('Authorization', 'Basic ' + btoa('admin:admin')); //basic auth
-
-    return this
+    this
       .http
       .get(url, {headers})
       .map(resp => resp.json())
-      .toPromise()
-      .then(
-        (id) => {
-          this.rentedCarId = id.toString();
-          console.log(this.rentedCarId +"in");
-        },
-        (err) => {
-          console.error('Fehler beim Laden', err);
-        }
-      );
+      .subscribe((id) => {
+        console.log("While subscription id: ", id);
+        this.rentedCarId = id;
+      },
+        (error) => console.log(error)
+      )
+
   }
+
 }

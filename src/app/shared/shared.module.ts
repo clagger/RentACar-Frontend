@@ -4,7 +4,7 @@
 import {NgModule} from "@angular/core";
 import { CommonModule} from '@angular/common';
 import {CarCardComponent} from "../car-card/car-card.component";
-import {CustomerService} from "../customer-service/customer.service";
+import {CustomerService} from "../services/customer-service/customer.service";
 
 
 @NgModule({

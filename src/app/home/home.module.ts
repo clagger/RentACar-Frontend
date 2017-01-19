@@ -3,7 +3,7 @@ import {FormsModule} from "@angular/forms";
 import {CommonModule} from "@angular/common";
 import {HomeRoutes} from "./home.route";
 import {RegisterComponent} from "../register/register.component";
-import {CustomerService} from "../customer-service/customer.service";
+import {CustomerService} from "../services/customer-service/customer.service";
 
 
 @NgModule({

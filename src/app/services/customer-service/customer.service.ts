@@ -1,12 +1,9 @@
 import { Injectable } from '@angular/core';
-import {URLSearchParams} from "@angular/http";
 import {Http, Headers} from "@angular/http";
 import 'rxjs/Rx';
-import {Observable} from "rxjs/Rx";
 import {Inject} from "@angular/core";
-import {BASE_URL_CUSTOMERS} from "../app.tokens";
-import {Customer} from "../entities/customer";
-
+import {BASE_URL_CUSTOMERS} from "../../app.tokens";
+import {Customer} from "../../entities/customer";
 
 
 @Injectable()
