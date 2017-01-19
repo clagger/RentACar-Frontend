@@ -9,6 +9,9 @@ import {BASE_URL_CARS, BASE_URL_CUSTOMERS, BASE_URL_RENTEDCARS} from './app.toke
 
 import { HomeComponent } from './home/home.component';
 import {CarSearchModule} from "./car-search/car-search.module";
+import {MyCarsComponent} from "./my-cars/my-cars.component";
+import {MyCarsModule} from "./my-cars/my-cars.module";
+import {CarCardComponent} from "./car-card/car-card.component";
 
 
 const BASE_URL_CARS_PRODUCTION = "https://localhost:8080/cars";
@@ -19,15 +22,19 @@ const BASE_URL_RENTEDCARS_PRODUCTION = "https://localhost:8080/rentedcars";
   declarations: [
     AppComponent,
     HomeComponent
+
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
     AppRouterModule,
-    CarSearchModule
+    CarSearchModule,
+    MyCarsModule
+
   ],
-  providers: [{provide: BASE_URL_CARS, useValue: BASE_URL_CARS_PRODUCTION},
+  providers: [
+    {provide: BASE_URL_CARS, useValue: BASE_URL_CARS_PRODUCTION},
     {provide:BASE_URL_CUSTOMERS, useValue: BASE_URL_CUSTOMERS_PRODUCTION},
     {provide:BASE_URL_RENTEDCARS, useValue: BASE_URL_RENTEDCARS_PRODUCTION
                 }

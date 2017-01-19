@@ -1,0 +1,11 @@
+<div *ngFor="let c of cars" class="col-xs-12 col-lg-3 col-md-4 col-sm-6 ">
+  <car-card
+    [item]="c"
+    [(selectedItem)]="selectedCar">
+  </car-card>
+</div>
+
+<pre>Warenkorb
+------------------------
+{{ selectedCar | json }}
+</pre>
