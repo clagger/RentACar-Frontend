@@ -1,5 +1,4 @@
 export interface Customer {
-  id: number
   firstName: string
   lastName: string
   address: string
@@ -7,5 +6,5 @@ export interface Customer {
   email: string
   birthDate: string
   driverLicense: string
-
+  password: string
 }

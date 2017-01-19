@@ -45,7 +45,7 @@ export class CarService{
 
   }
   public findAll():void {
-      let url = this.baseUrl
+      let url = this.baseUrl;
 
     let headers = new Headers();
     headers.set('Accept', 'application/json');
