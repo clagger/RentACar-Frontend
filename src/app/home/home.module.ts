@@ -2,8 +2,8 @@ import {NgModule} from "@angular/core";
 import {FormsModule} from "@angular/forms";
 import {CommonModule} from "@angular/common";
 import {HomeRoutes} from "./home.route";
-import {LoginComponent} from "../login/login.component";
 import {RegisterComponent} from "../register/register.component";
+import {CustomerService} from "../customer-service/customer.service";
 
 
 @NgModule({
@@ -13,13 +13,12 @@ import {RegisterComponent} from "../register/register.component";
     HomeRoutes
   ],
   declarations: [
-    LoginComponent,
     RegisterComponent
   ],
   exports: [
 
   ],
-  providers: []
+  providers: [CustomerService]
 })
 export class HomeModule {
 

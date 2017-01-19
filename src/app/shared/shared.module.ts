@@ -4,6 +4,7 @@
 import {NgModule} from "@angular/core";
 import { CommonModule} from '@angular/common';
 import {CarCardComponent} from "../car-card/car-card.component";
+import {CustomerService} from "../customer-service/customer.service";
 
 
 @NgModule({
@@ -14,10 +15,10 @@ import {CarCardComponent} from "../car-card/car-card.component";
     CarCardComponent
   ],
   providers: [
-    // Vorerst keine Provider
+    CustomerService
   ],
   exports: [
-CarCardComponent
+    CarCardComponent
   ]
 
 })

@@ -5,10 +5,6 @@ import {RegisterComponent} from "../register/register.component";
 
 const HOME_ROUTES: Routes = [
   {
-    path: 'login',
-    component: LoginComponent
-  },
-  {
     path: 'register',
     component: RegisterComponent
   }
