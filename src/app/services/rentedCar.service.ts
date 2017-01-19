@@ -7,6 +7,8 @@ import {Observable} from "rxjs";
 @Injectable()
 export class RentedCarService{
 
+  rentedCarId:number;
+
   constructor(
     @Inject(BASE_URL_RENTEDCARS) private baseUrl: string,
     private http: Http){
@@ -14,8 +16,6 @@ export class RentedCarService{
   }
 
 
-
-  rentedCarId:string;
 
 
   getId(id:number): void {
@@ -30,13 +30,25 @@ export class RentedCarService{
       .http
       .get(url, {headers})
       .map(resp => resp.json())
-      .subscribe((id) => {
-        console.log("While subscription id: ", id);
+      .subscribe(id => {
         this.rentedCarId = id;
+        this.deleteRentedCarEntry(this.rentedCarId);
       },
-        (error) => console.log(error)
-      )
+          error => console.log(error)
+      );
 
   }
+
+
+
+  deleteRentedCarEntry(rowID:number): void {
+    let url = this.baseUrl+"/"+rowID;
+
+    this.http
+      .delete(url)
+      .map(resp => resp.json())
+      .subscribe(res => res)
+}
+
 
 }
