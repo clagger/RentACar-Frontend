@@ -5,6 +5,7 @@
 import {Component} from "@angular/core";
 import {Car} from "../entities/car";
 import {CarService} from "../services/car.service";
+import {RentedCarService} from "../services/rentedCar.service";
 
 @Component({
   selector: 'my-cars',
@@ -13,11 +14,10 @@ import {CarService} from "../services/car.service";
 
 export class  MyCarsComponent {
 
-  public id:string;
   public selectedCar : Car;
   public customerId: number;
 
-  constructor(private carService:CarService) {
+  constructor(private carService:CarService, private rentedCarService:RentedCarService) {
     this.carService.loadMyCars();
   }
 
@@ -25,7 +25,7 @@ export class  MyCarsComponent {
     return this.carService.cars;
   }
 
-  edit(id:string):void{
-    //this.carService.editMyCar(this.id);
+  delete(car:Car) {
+    this.rentedCarService.delete(car.id);
   }
 }

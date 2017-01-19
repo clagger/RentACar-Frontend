@@ -8,4 +8,5 @@ export interface Car {
   gasType: string
   transmission: string
   horsePower: number
+  _links:string
 }

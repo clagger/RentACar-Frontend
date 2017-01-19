@@ -17,7 +17,7 @@ import {HomeModule} from "./home/home.module";
 
 const BASE_URL_CARS_PRODUCTION = "https://localhost:8080/cars";
 const BASE_URL_CUSTOMERS_PRODUCTION = "https://localhost:8080/customers";
-const BASE_URL_RENTEDCARS_PRODUCTION = "https://localhost:8080/rentedcars";
+const BASE_URL_RENTEDCARS_PRODUCTION = "https://localhost:8080/rentedCars";
 
 @NgModule({
   declarations: [

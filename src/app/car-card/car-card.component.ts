@@ -15,6 +15,7 @@ export class CarCardComponent {
   @Output() selectedItemChange = new EventEmitter();
 
   select() {
-    this.selectedItemChange.next(this.item);
+    this.selectedItemChange.emit(this.item);
+
   }
 }

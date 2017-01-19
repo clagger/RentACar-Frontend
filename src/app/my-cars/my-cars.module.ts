@@ -15,6 +15,7 @@ import {MyCarsRouterModule} from "./my-cars.routes";
 import {CarCardComponent} from "../car-card/car-card.component";
 import {CarSearchModule} from "../car-search/car-search.module";
 import {SharedModule} from "../shared/shared.module";
+import {RentedCarService} from "../services/rentedCar.service";
 
 @NgModule({
   imports: [
@@ -32,7 +33,8 @@ import {SharedModule} from "../shared/shared.module";
     MyCarsComponent
   ],
   providers: [
-    CarService
+    CarService,
+    RentedCarService
   ]
 })
 

@@ -89,4 +89,26 @@ export class CarService{
         }
       );
   }
+
+  delete(id:string):void{
+    let url = this.baseUrl+"/search/findByCustomer?customer="+sessionStorage.getItem("customerID");
+
+    let headers = new Headers();
+    headers.set('Accept', 'application/json');
+
+    //headers.set('Authorization', 'Basic ' + btoa('admin:admin')); //basic auth
+
+    this
+      .http
+      .delete(url, {headers})
+      .map(resp => resp.json()["_embedded"]["cars"])
+      .subscribe(
+        (cars) => {
+          this.cars = cars;
+        },
+        (err) => {
+          console.error('Fehler beim Laden', err);
+        }
+      );
+  }
 }
