@@ -20,7 +20,7 @@ export class RentedCarService{
   }
 
 
-  delete(id:number):void{
+  delete(id:number):Promise<number>{
     let url = this.baseUrl+"/search/findRentedCar?customer="+sessionStorage.getItem("customerID")+"&car="+id;
 
     console.log(id+"b4");
@@ -30,11 +30,12 @@ export class RentedCarService{
 
     //headers.set('Authorization', 'Basic ' + btoa('admin:admin')); //basic auth
 
-    this
+    return this
       .http
       .get(url, {headers})
       .map(resp => resp.json())
-      .map(
+      .toPromise()
+      .then(
         (id) => {
           this.rentedCarId = id.toString();
           console.log(this.rentedCarId +"in");
@@ -43,7 +44,5 @@ export class RentedCarService{
           console.error('Fehler beim Laden', err);
         }
       );
-
-    console.log(this.rentedCarId+"late");
   }
 }
