@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Rent-a-Car | Create Account</title>
+    <title>Register</title>
 </head>
 <body>
 
@@ -16,6 +16,11 @@
       </div>
     </div>
     <div class="main-login main-center">
+      <!-- ALERT -->
+      <div [class.show]="message" [ngClass]="(success)? 'alert alert-success' : 'alert alert-danger'" class="step" role="alert">
+        {{message}}
+      </div>
+      <!-- ALERT END -->
       <form #f="ngForm" class="form-horizontal" novalidate>
 
         <div class="form-group">
@@ -24,7 +29,7 @@
             <div class="input-group">
               <span [ngStyle]="{'background-color': (f?.controls?.firstName?.valid && f?.controls?.lastName?.valid)? 'green' : ''}" class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
               <input [(ngModel)]="firstName" minlength="2" required type="text" class="form-control" name="firstName" id="firstName"  placeholder="Enter your Name"/>
-              <input [(ngModel)]="lastName" minlength="1" required type="text" class="form-control" name="lastName" id="lastName"  placeholder="Enter your last Name"/>
+              <input [(ngModel)]="lastName" minlength="2" required type="text" class="form-control" name="lastName" id="lastName"  placeholder="Enter your last Name"/>
             </div>
           </div>
           <span *ngIf="f?.controls?.firstName?.hasError('minlength') || f?.controls?.lastName?.hasError('minlength')" class="help-block">Error. Please check your first and last name.</span>

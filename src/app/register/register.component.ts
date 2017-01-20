@@ -26,16 +26,24 @@ export class RegisterComponent {
 
   customer: Customer;
   message: string;
+  success: boolean;
+
 
   save(): void {
-    console.log(this.password);
     this
       .customerService
       .createCustomer(this.firstName,this.lastName,this.address,this.phoneNumber,this.email,this.birthday,this.driverLicenseNumber,this.password)
-      .then(customer => {
-        this.customer = customer;
-        this.message = "Data saved!"
+      .subscribe(customer => {
+        this.message = "Account was created successfully!";
+        this.success = true;
+        console.log(customer);
+      },
+        (error) => {
+        this.message = "An Error occured while creating the account!";
+        this.success = false;
+        console.log(error);
       });
+
   }
 
 
