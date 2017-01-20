@@ -60,3 +60,13 @@ input::-webkit-input-placeholder {
   color: red;
   font-weight: bold;
 }
+
+
+.show{
+  opacity: 1 !important;
+}
+
+.step{
+  opacity: 0;
+  transition: 0.5s ease-in-out all;
+}
