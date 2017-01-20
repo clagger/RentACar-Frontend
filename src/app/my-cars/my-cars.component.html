@@ -1,8 +1,10 @@
-<div *ngFor="let c of cars" class="col-xs-12 col-lg-3 col-md-4 col-sm-6 ">
-  <car-card
-    [item]="c"
-    [(selectedItem)]="selectedCar">
-  </car-card>
+<div class="row">
+  <div *ngFor="let c of cars" class="col-xs-12 col-lg-3 col-md-4 col-sm-6 ">
+    <car-card
+      [item]="c"
+      [(selectedItem)]="selectedCar">
+    </car-card>
+  </div>
 </div>
 
 
@@ -10,8 +12,15 @@
   <button class="btn"class="btn btn-warning" (click)="edit(selectedCar.id)">Edit</button>
 </div>-->
 
-<div class="form-group">
-  <button class="btn"class="btn btn-danger" (click)="deleteEntry(selectedCar)">Delete</button>
+
+
+
+
+<div class="row">
+  <div *ngIf="selectedCar" class="col-md-1"><button class="btn"class="btn btn-warning" [routerLink]="['/rent-edit', selectedCar.id]">Edit</button></div>
+  <div class="col-md-1"><button class="btn"class="btn btn-danger" (click)="deleteEntry(selectedCar)">Delete</button></div>
+
+
 </div>
 
 <pre>Warenkorb

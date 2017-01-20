@@ -4,7 +4,5 @@
 
 export class RentedCar {
   id: number
-  carId: number
-  customerId: number
   leaseTime: number
 }

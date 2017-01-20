@@ -8,6 +8,7 @@ import {Injectable, Inject} from "@angular/core";
 import {Http, URLSearchParams, Headers} from "@angular/http";
 import {Car} from "../entities/car";
 import {BASE_URL_CARS} from "../app.tokens";
+import {Observable} from "rxjs";
 @Injectable()
 export class CarService{
 
@@ -66,6 +67,21 @@ export class CarService{
       );
   }
 
+  public findById(id:string): Observable<Car> {
+    let url = this.baseUrl+"/search/findById";
+
+    let search = new URLSearchParams();
+    search.set('id', id);
+
+    let headers = new Headers();
+    headers.set('Accept', 'application/json');
+
+    return this
+      .http
+      .get(url, { headers, search })
+      .map(resp => resp.json());
+  }
+
   //load cars in My Cars Tab
 
   loadMyCars() {
@@ -80,7 +96,7 @@ export class CarService{
       .http
       .get(url, {headers})
       .map(resp => resp.json()["_embedded"]["cars"])
-      .subscribe(
+  .subscribe(
         (cars) => {
           this.cars = cars;
         },
