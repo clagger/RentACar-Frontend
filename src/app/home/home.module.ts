@@ -4,13 +4,16 @@ import {CommonModule} from "@angular/common";
 import {HomeRoutes} from "./home.route";
 import {RegisterComponent} from "../register/register.component";
 import {CustomerService} from "../services/customer-service/customer.service";
+import {SharedModule} from "../shared/shared.module";
+import {CustomerLoginService} from "../services/customer-service/customer-login.service";
 
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
-    HomeRoutes
+    HomeRoutes,
+    SharedModule
   ],
   declarations: [
     RegisterComponent
@@ -18,7 +21,7 @@ import {CustomerService} from "../services/customer-service/customer.service";
   exports: [
 
   ],
-  providers: [CustomerService]
+  providers: [CustomerService, CustomerLoginService]
 })
 export class HomeModule {
 
