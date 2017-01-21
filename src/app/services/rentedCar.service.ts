@@ -4,6 +4,7 @@ import {Http, URLSearchParams, Headers} from "@angular/http";
 import {BASE_URL_RENTEDCARS, BASE_URL_CARS, BASE_URL_CUSTOMERS} from "../app.tokens";
 import {Observable} from "rxjs";
 import {RentedCar} from "../entities/rentedCar";
+import {CustomerLoginService} from "./customer-service/customer-login.service";
 
 @Injectable()
 export class RentedCarService{
@@ -14,7 +15,7 @@ export class RentedCarService{
     @Inject(BASE_URL_RENTEDCARS) private baseUrl: string,
     @Inject(BASE_URL_CARS) private carUrl: string,
     @Inject(BASE_URL_CUSTOMERS) private customerUrl: string,
-    private http: Http){
+    private http: Http,private customerLoginService:CustomerLoginService){
 
   }
 
@@ -24,11 +25,12 @@ export class RentedCarService{
   getId(id:number): void {
     let url = this.baseUrl + "/search/findRentedCarId";
     let search = new URLSearchParams();
-    search.set('customer', sessionStorage.getItem("customer"));
+    search.set('customer', this.customerLoginService.getUserInfos().id);
     search.set('car', id.toString());
 
     let headers = new Headers();
     headers.set('Accept', 'application/json');
+    headers.set('Authorization', this.customerLoginService.authorizationHeader());
 
     this
       .http
@@ -59,12 +61,13 @@ export class RentedCarService{
 findRentedCar(car:string): Observable<RentedCar> {
   let url = this.baseUrl + "/search/findRentedCar";
   let search = new URLSearchParams();
-  search.set('customer', sessionStorage.getItem("customer"));
+  search.set('customer', this.customerLoginService.getUserInfos().id);
   search.set('car', car.toString());
 
 
   let headers = new Headers();
   headers.set('Accept', 'application/json');
+  headers.set('Authorization', this.customerLoginService.authorizationHeader());
 
   return this
     .http
@@ -78,6 +81,7 @@ save (rentedCar:RentedCar): Observable<RentedCar> {
 
   let headers = new Headers();
   headers.set('Accept', 'application/json');
+  headers.set('Authorization', this.customerLoginService.authorizationHeader());
 
   return this
     .http
@@ -89,10 +93,11 @@ saveNewEntry(carId:string, leaseTime:number):void{
   let url = this.baseUrl;
 
   let car = this.carUrl+"/"+carId;
-  let customer = this.baseUrl+"/"+sessionStorage.getItem("customer");
+  let customer = this.baseUrl+"/"+this.customerLoginService.getUserInfos().id;
 
   let headers = new Headers();
   headers.set('Accept', 'application/json');
+  headers.set('Authorization', this.customerLoginService.authorizationHeader());
 
    this
     .http
