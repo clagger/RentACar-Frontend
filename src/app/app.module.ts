@@ -14,8 +14,6 @@ import { HomeComponent } from './home/home.component';
 import {CarSearchModule} from "./car-search/car-search.module";
 import {MyCarsModule} from "./my-cars/my-cars.module";
 import {HomeModule} from "./home/home.module";
-import {OAuthModule} from 'angular-oauth2-oidc';
-
 
 const BASE_URL_CARS_PRODUCTION = "https://localhost:8080/cars";
 const BASE_URL_CUSTOMERS_PRODUCTION = "https://localhost:8080/customers";

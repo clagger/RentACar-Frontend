@@ -1,19 +1,34 @@
-<div class="row">
+<!--<div class="row">
   <div *ngFor="let c of cars" class="col-xs-12 col-lg-3 col-md-4 col-sm-6 ">
     <car-card
       [item]="c"
       [(selectedItem)]="selectedCar">
     </car-card>
   </div>
-</div>
-
-
-<!--<div class="form-group">
-  <button class="btn"class="btn btn-warning" (click)="edit(selectedCar.id)">Edit</button>
 </div>-->
 
-
-
+<table  class="table table-striped table-bordered">
+  <tr>
+    <td><b>Brand</b></td>
+    <td><b>Model</b></td>
+    <td><b>Kilometers</b></td>
+    <td><b>Seatnumber</b></td>
+    <td><b>Gastype</b></td>
+    <td><b>Horsepower</b></td>
+    <td><b>Color</b></td>
+    <td><b>Rent It!</b></td>
+  </tr>
+  <tr *ngFor="let c of cars" [ngStyle]="{ 'background-color': (c == selectedCar) ? 'orange' : ''  }">
+    <td>{{c.brand}}</td>
+    <td>{{c.model}}</td>
+    <td>{{c.kilometers}}</td>
+    <td>{{c.seatNumber}}</td>
+    <td>{{c.gasType}}</td>
+    <td>{{c.horsePower}}</td>
+    <td  [ngStyle]="{'background-color': c.color}"></td>
+    <td><button class="btn" (click)="select(c)">Auswählen</button></td>
+  </tr>
+</table>
 
 
 <div class="row">
@@ -23,7 +38,3 @@
 
 </div>
 
-<pre>Warenkorb
-------------------------
-{{ selectedCar | json}}
-</pre>

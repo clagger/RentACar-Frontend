@@ -12,6 +12,9 @@ import {CarSearchRouterModule} from "./car-search.routes";
 import {CarService} from "../services/car.service";
 import {CarCardComponent} from "../car-card/car-card.component";
 import {SharedModule} from "../shared/shared.module";
+import {Ng2Bs3ModalModule} from "ng2-bs3-modal/ng2-bs3-modal";
+import {RentedCarService} from "../services/rentedCar.service";
+
 
 @NgModule({
   imports: [
@@ -21,13 +24,14 @@ import {SharedModule} from "../shared/shared.module";
     SharedModule
   ],
   declarations: [
-    CarSearchComponent
+    CarSearchComponent,
+
   ],
   exports: [
     CarSearchComponent
   ],
   providers: [
-    CarService
+    CarService, RentedCarService
   ]
 })
 

@@ -9,7 +9,7 @@ import {CustomerLoginService} from "./services/customer-service/customer-login.s
 export class AppComponent {
 
   constructor(private customerLoginService:CustomerLoginService){
-
+  sessionStorage.setItem("customer", "1");
   }
 
   isLoggedIn: boolean = this.customerLoginService.hasValidAccessToken();

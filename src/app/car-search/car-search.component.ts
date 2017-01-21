@@ -1,6 +1,7 @@
 import {Component} from "@angular/core";
 import {Car} from "../entities/car";
 import {CarService} from "../services/car.service";
+import {RentedCarService} from "../services/rentedCar.service";
 /**
  * Created by Christian on 1/17/2017.
  */
@@ -13,8 +14,9 @@ import {CarService} from "../services/car.service";
 export class CarSearchComponent {
   public searchValue :string;
   public selectedCar: Car;
+  public leaseTime:number;
 
-  constructor(private carService: CarService) {}
+  constructor(private carService: CarService, private rentedCarService: RentedCarService) {}
 
   public get cars(): Array<Car> {
     return this.carService.cars;
@@ -29,6 +31,11 @@ export class CarSearchComponent {
   }
   select(car: Car): void {
     this.selectedCar = car;
+  }
+
+  rent(car:Car, leaseTime:number):void {
+    this.rentedCarService.saveNewEntry(car.id.toString(), leaseTime);
+
   }
 
 }

@@ -28,6 +28,9 @@ export class  MyCarsComponent {
   deleteEntry(car:Car) {
     this.rentedCarService.getId(car.id);
   }
+  select(car: Car): void {
+    this.selectedCar = car;
+  }
 
 
 }

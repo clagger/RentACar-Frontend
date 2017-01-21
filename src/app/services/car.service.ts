@@ -46,7 +46,8 @@ export class CarService{
 
   }
   public findAll():void {
-      let url = this.baseUrl;
+      let url = this.baseUrl+"/search/findAllAvailableCars?customer="+sessionStorage.getItem("customer")
+
 
     let headers = new Headers();
     headers.set('Accept', 'application/json');
@@ -85,7 +86,7 @@ export class CarService{
   //load cars in My Cars Tab
 
   loadMyCars() {
-    let url = this.baseUrl+"/search/findByCustomer?customer="+sessionStorage.getItem("customerID");
+    let url = this.baseUrl+"/search/findByCustomer?customer="+sessionStorage.getItem("customer");
 
     let headers = new Headers();
     headers.set('Accept', 'application/json');
