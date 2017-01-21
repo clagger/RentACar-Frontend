@@ -1,20 +1,27 @@
 import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
-import {MyCarsComponent} from "./my-cars/my-cars.component";
+import {LoginComponent} from "./login/login.component";
+import {RegisterComponent} from "./register/register.component";
+import {RouterGuard} from "./services/route-guard.service";
 
 const APP_ROUTES: Routes = [
   {
     path: '',
-    redirectTo: 'home',
-    pathMatch: 'full'
+    redirectTo: 'login',
+    pathMatch: 'full',
   },
   {
     path: 'home',
-    component: HomeComponent
+    component: HomeComponent,
+    canActivate: [RouterGuard]
   },
   {
-    path: '**',
-    redirectTo: 'home'
+    path: 'login',
+    component: LoginComponent,
+  },
+  {
+    path: 'register',
+    component: RegisterComponent
   }
 
 ];

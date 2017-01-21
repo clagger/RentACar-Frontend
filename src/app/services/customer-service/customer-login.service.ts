@@ -1,6 +1,7 @@
 import {Http, URLSearchParams, Headers} from "@angular/http";
 import {Inject, Injectable} from "@angular/core";
 import {BASE_URL_CUSTOMERS, BASE_URL_OAUTH2_TOKEN_REQUEST, CLIENT_APP_NAME, CLIENT_APP_SECRET} from "../../app.tokens";
+import {isNullOrUndefined} from "util";
 
 
 @Injectable()
@@ -33,7 +34,7 @@ export class CustomerLoginService {
       this.http.get(this.customersUrl+findbyMail, { headers, search }).map(r => r.json()._embedded.customers[0]).subscribe(
         (userInfo) => {
           console.debug('userinfo received', userInfo);
-          this._storage.setItem('userInfo', userInfo);
+          this._storage.setItem('userInfo', JSON.stringify(userInfo));
           resolve(userInfo);
         },
         (err) => {
@@ -121,6 +122,20 @@ export class CustomerLoginService {
 
 
 
+  logOut() {
+    let id_token = this.getIdToken();
+    this._storage.removeItem("userInfo");
+    this._storage.removeItem("access_token");
+    this._storage.removeItem("id_token");
+    this._storage.removeItem("refresh_token");
+    this._storage.removeItem("expires_at");
+    this._storage.removeItem("id_token_claims_obj");
+    this._storage.removeItem("id_token_expires_at");
+  };
+
+
+
+
   private storeAccessTokenResponse(accessToken: string, refreshToken: string, expiresIn: number) {
     this._storage.setItem("access_token", accessToken);
 
@@ -152,7 +167,7 @@ export class CustomerLoginService {
   }
 
   getUserInfos() {
-    return this._storage.getItem("userInfo");
+    return JSON.parse(this._storage.getItem("userInfo"));
   }
 
 
@@ -166,25 +181,17 @@ export class CustomerLoginService {
 
 
     }
-
     return false;
   };
 
 
-  hasValidIdToken() {
-    if (this.getIdToken()) {
 
-      let expiresAt = this._storage.getItem("id_token_expires_at");
-      let now = new Date();
-      if (expiresAt && parseInt(expiresAt) < now.getTime()) {
-        return false;
-      }
-
+  isLoggedIn(): boolean{
+    if(!isNullOrUndefined(this.getAccessToken()) && !isNullOrUndefined(this.getUserInfos())){
       return true;
     }
-
-    return false;
-  };
+    else return false;
+  }
 
 
 

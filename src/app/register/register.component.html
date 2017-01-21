@@ -17,7 +17,7 @@
     </div>
     <div class="main-login main-center">
       <!-- ALERT -->
-      <div [class.show]="message" [ngClass]="(success)? 'alert alert-success' : 'alert alert-danger'" class="step" role="alert">
+      <div *ngIf="(message)" [ngClass]="(success)? 'alert-success show' : 'alert alert-danger show'" class="alert step" role="alert">
         {{message}}
       </div>
       <!-- ALERT END -->
@@ -109,7 +109,7 @@
           <button [disabled]="!f.valid" type="submit" class="btn btn-primary btn-lg btn-block login-button" (click)="save()" >Register</button>
         </div>
         <div class="login-register">
-          <a [routerLink]="['/home']">Login</a>
+          <a [routerLink]="['/login']">Login</a>
         </div>
       </form>
     </div>

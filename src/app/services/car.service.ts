@@ -9,6 +9,7 @@ import {Http, URLSearchParams, Headers} from "@angular/http";
 import {Car} from "../entities/car";
 import {BASE_URL_CARS} from "../app.tokens";
 import {Observable} from "rxjs";
+import {CustomerLoginService} from "./customer-service/customer-login.service";
 @Injectable()
 export class CarService{
 
@@ -16,7 +17,7 @@ export class CarService{
 
   constructor(
     @Inject(BASE_URL_CARS) private baseUrl: string,
-    private http: Http){
+    private http: Http,private customerLoginService:CustomerLoginService){
 
   }
 
@@ -28,6 +29,7 @@ export class CarService{
 
       let headers = new Headers();
       headers.set('Accept', 'application/json');
+      headers.set('Authorization', this.customerLoginService.authorizationHeader());
 
       //headers.set('Authorization', 'Basic ' + btoa('admin:admin')); //basic auth
 
@@ -46,13 +48,12 @@ export class CarService{
 
   }
   public findAll():void {
-      let url = this.baseUrl+"/search/findAllAvailableCars?customer="+sessionStorage.getItem("customer")
-
+      let url = this.baseUrl;
 
     let headers = new Headers();
     headers.set('Accept', 'application/json');
+    headers.set('Authorization', this.customerLoginService.authorizationHeader());
 
-    //headers.set('Authorization', 'Basic ' + btoa('admin:admin')); //basic auth
 
     this
       .http
@@ -76,6 +77,7 @@ export class CarService{
 
     let headers = new Headers();
     headers.set('Accept', 'application/json');
+    headers.set('Authorization', this.customerLoginService.authorizationHeader());
 
     return this
       .http
@@ -83,19 +85,21 @@ export class CarService{
       .map(resp => resp.json());
   }
 
+
   //load cars in My Cars Tab
-
   loadMyCars() {
-    let url = this.baseUrl+"/search/findByCustomer?customer="+sessionStorage.getItem("customer");
-
+    let url = this.baseUrl+"/search/findByCustomer";
     let headers = new Headers();
     headers.set('Accept', 'application/json');
+    headers.set('Authorization', this.customerLoginService.authorizationHeader());
 
-    //headers.set('Authorization', 'Basic ' + btoa('admin:admin')); //basic auth
+    let search = new URLSearchParams();
+    search.set('customer', this.customerLoginService.getUserInfos().id);
+
 
     this
       .http
-      .get(url, {headers})
+      .get(url,{headers, search})
       .map(resp => resp.json()["_embedded"]["cars"])
   .subscribe(
         (cars) => {
@@ -107,17 +111,20 @@ export class CarService{
       );
   }
 
-  delete(id:string):void{
-    let url = this.baseUrl+"/search/findByCustomer?customer="+sessionStorage.getItem("customerID");
 
+
+  delete(id:string):void{
+    let url = this.baseUrl+"/search/findByCustomer";
     let headers = new Headers();
     headers.set('Accept', 'application/json');
+    headers.set('Authorization', this.customerLoginService.authorizationHeader());
 
-    //headers.set('Authorization', 'Basic ' + btoa('admin:admin')); //basic auth
+    let search = new URLSearchParams();
+    search.set('customer', this.customerLoginService.getUserInfos().id);
 
     this
       .http
-      .delete(url, {headers})
+      .delete(url,{headers, search})
       .map(resp => resp.json()["_embedded"]["cars"])
       .subscribe(
         (cars) => {
