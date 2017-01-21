@@ -16,6 +16,7 @@ import {MyCarsModule} from "./my-cars/my-cars.module";
 import {SharedModule} from "./shared/shared.module";
 import {LoginComponent} from "./login/login.component";
 import {RegisterComponent} from "./register/register.component";
+import {RouterGuard} from "./services/route-guard.service";
 
 
 const BASE_URL_CARS_PRODUCTION = "https://localhost:8080/cars";
@@ -40,8 +41,7 @@ const CLIENT_APP_SECRET_PRODUCTION = "Pa$$w0rd";
     HttpModule,
     AppRouterModule,
     CarSearchModule,
-    MyCarsModule,
-    SharedModule
+    MyCarsModule
   ],
   providers: [
     {provide:BASE_URL_CARS, useValue: BASE_URL_CARS_PRODUCTION},
@@ -49,9 +49,9 @@ const CLIENT_APP_SECRET_PRODUCTION = "Pa$$w0rd";
     {provide:BASE_URL_RENTEDCARS, useValue: BASE_URL_RENTEDCARS_PRODUCTION},
     {provide:BASE_URL_OAUTH2_TOKEN_REQUEST, useValue: BASE_URL_OAUTH2_TOKEN_REQUEST_PRODUCTION},
     {provide:CLIENT_APP_NAME, useValue: CLIENT_APP_NAME_PRODUCTION},
-    {provide:CLIENT_APP_SECRET, useValue: CLIENT_APP_SECRET_PRODUCTION}
+    {provide:CLIENT_APP_SECRET, useValue: CLIENT_APP_SECRET_PRODUCTION},
 
-
+    RouterGuard
   ],
   bootstrap: [ AppComponent ]
 })

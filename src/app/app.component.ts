@@ -12,8 +12,9 @@ export class AppComponent {
   isLoggedOn:boolean;
 
   constructor(private customerLoginService:CustomerLoginService,private router:Router){
-    this.router.events.subscribe(() => { // <= This is needed in order to disable the nav-bar for login and register site
-      this.isLoggedOn = this.customerLoginService.isLoggedIn();
+    this.router.events.subscribe((ev) => { // <= This is needed in order to disable the nav-bar for login and register site
+      if(ev.url === "/login" || ev.url === "/home")
+        this.isLoggedOn = this.customerLoginService.isLoggedIn();
     })
   }
 

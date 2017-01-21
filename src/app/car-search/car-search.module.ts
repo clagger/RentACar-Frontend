@@ -10,7 +10,6 @@ import {CarSearchComponent} from "./car-search.component";
 
 import {CarSearchRouterModule} from "./car-search.routes";
 import {CarService} from "../services/car.service";
-import {CarCardComponent} from "../car-card/car-card.component";
 import {SharedModule} from "../shared/shared.module";
 
 @NgModule({

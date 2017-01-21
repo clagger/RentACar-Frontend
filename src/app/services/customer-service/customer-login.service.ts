@@ -124,13 +124,13 @@ export class CustomerLoginService {
 
   logOut() {
     let id_token = this.getIdToken();
+    this._storage.removeItem("userInfo");
     this._storage.removeItem("access_token");
     this._storage.removeItem("id_token");
     this._storage.removeItem("refresh_token");
     this._storage.removeItem("expires_at");
     this._storage.removeItem("id_token_claims_obj");
     this._storage.removeItem("id_token_expires_at");
-
   };
 
 
@@ -187,7 +187,7 @@ export class CustomerLoginService {
 
 
   isLoggedIn(): boolean{
-    if(!isNullOrUndefined(this.getAccessToken())){
+    if(!isNullOrUndefined(this.getAccessToken()) && !isNullOrUndefined(this.getUserInfos())){
       return true;
     }
     else return false;
