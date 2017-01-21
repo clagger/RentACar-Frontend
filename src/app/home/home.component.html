@@ -3,7 +3,7 @@
     <div class="col-sm-10">
       <h1>Welcome, {{customerInfo.firstName}}</h1>
 
-      <button routerLink="" type="button" class="btn btn-success">Edit Informations</button>
+      <button routerLink="/edit-customer" type="button" class="btn btn-success">Edit Informations</button>
       <br>
     </div>
     <div class="col-sm-2"><img title="profile image" class="img-circle img-responsive" src="../../rent_a_car.jpg"></div>
@@ -13,24 +13,45 @@
     <div class="col-sm-3">
       <ul class="list-group">
         <li class="list-group-item text-muted" contenteditable="false"><strong>Profile</strong></li>
-        <li class="list-group-item text-right"><span class="pull-left"><strong class="">Name</strong></span> {{customerInfo.lastName}}</li>
-        <li class="list-group-item text-right"><span class="pull-left"><strong class="">First Name</strong></span> {{customerInfo.firstName}}</li>
-        <li class="list-group-item text-right"><span class="pull-left"><strong class="">E-mail</strong></span> {{customerInfo.email}}</li>
-        <li class="list-group-item text-right"><span class="pull-left"><strong class="">Birthday</strong></span> {{customerInfo.birthDate}}</li>
-        <li class="list-group-item text-right"><span class="pull-left"><strong class="">Address </strong></span> {{customerInfo.address}}</li>
+        <li class="list-group-item text-right"><span class="pull-left"><strong>Name</strong></span> {{customerInfo.lastName}}</li>
+        <li class="list-group-item text-right"><span class="pull-left"><strong>First Name</strong></span> {{customerInfo.firstName}}</li>
+        <li class="list-group-item text-right"><span class="pull-left"><strong>E-mail</strong></span> {{customerInfo.email}}</li>
+        <li class="list-group-item text-right"><span class="pull-left"><strong>Birthday</strong></span> {{customerInfo.birthDate}}</li>
+        <li class="list-group-item text-right"><span class="pull-left"><strong>Address </strong></span> {{customerInfo.address}}</li>
+        <li class="list-group-item text-right"><span class="pull-left"><strong>Driver License </strong></span> {{customerInfo.driverLicenseNumber}}</li>
       </ul>
     </div>
 
     <div class="col-sm-9" contenteditable="false" style="">
       <div class="panel panel-default">
-        <div class="panel-heading">{{customerInfo.firstName}}'s Rented Cars</div>
-        <table>
+        <div class="panel-heading"><strong>{{customerInfo.firstName}}'s Rented Cars</strong></div>
+        <table class="table">
+          <thead>
           <tr>
-            LEL
+            <th>Brand</th>
+            <th>Model</th>
+            <th>Kilometers</th>
+            <th>Transmission</th>
+            <th>Gas Type</th>
+            <th>Horse Power</th>
+            <th>Leased until</th>
+            <th>Lease Time</th>
           </tr>
+          </thead>
+          <tbody>
+          <tr class="success warning danger info">
+            <td>Success</td>
+            <td>Success</td>
+            <td>Success</td>
+            <td>Success</td>
+            <td>Success</td>
+            <td>Success</td>
+            <td>Success</td>
+            <td>Success</td>
+          </tr>
+          </tbody>
         </table>
       </div>
     </div>
   </div>
-
 </div>

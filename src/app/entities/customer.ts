@@ -5,6 +5,6 @@ export interface Customer {
   phoneNumber: string
   email: string
   birthDate: string
-  driverLicense: string
-  password: string
+  driverLicenseNumber: string
+  password:string
 }
