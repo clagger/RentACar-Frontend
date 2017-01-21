@@ -11,6 +11,7 @@ import {Car} from "../../entities/car";
 import {CarService} from "../../services/car.service";
 import {RentedCar} from "../../entities/rentedCar";
 
+
 @Component({
   templateUrl: './rent-edit.component.html'
 })
@@ -44,15 +45,15 @@ export class RentEditComponent {
         car => {
           this.car = car;
         },error => console.log(error)
-      )
+      );
 
     this
       .rentedCarService
       .findRentedCar(id)
-      .subscribe(
-        rentedCar => {
+      .subscribe((rentedCar) => {
           this.rentedCar = rentedCar;
-        },error => console.log(error)
+        },
+        (error) => console.log(error)
       )
 
 
@@ -62,10 +63,10 @@ export class RentEditComponent {
      this
    .rentedCarService
    .save(this.rentedCar)
-   .subscribe(
-   rentedCar => {
+   .subscribe((rentedCar) => {
    this.rentedCar = rentedCar;
-   },error => console.log(error)
+   },
+     (error) => console.log(error)
 
    )
 

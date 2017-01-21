@@ -1,4 +1,5 @@
 import {Component} from '@angular/core';
+import {CustomerLoginService} from "./services/customer-service/customer-login.service";
 
 
 @Component({
@@ -6,6 +7,13 @@ import {Component} from '@angular/core';
   templateUrl: './app.component.html',
 })
 export class AppComponent {
+
+  constructor(private customerLoginService:CustomerLoginService){
+
+  }
+
+  isLoggedIn: boolean = this.customerLoginService.hasValidAccessToken();
+
 
 
 }
