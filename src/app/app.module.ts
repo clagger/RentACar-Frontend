@@ -17,6 +17,7 @@ import {SharedModule} from "./shared/shared.module";
 import {LoginComponent} from "./login/login.component";
 import {RegisterComponent} from "./register/register.component";
 import {RouterGuard} from "./services/route-guard.service";
+import {CustomerEditComponent} from "./customer-edit/customer-edit.component";
 
 
 const BASE_URL_CARS_PRODUCTION = "https://localhost:8080/cars";
@@ -32,7 +33,8 @@ const CLIENT_APP_SECRET_PRODUCTION = "Pa$$w0rd";
     AppComponent,
     HomeComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    CustomerEditComponent
 
   ],
   imports: [

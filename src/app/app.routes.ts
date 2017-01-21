@@ -3,6 +3,7 @@ import { HomeComponent } from './home/home.component';
 import {LoginComponent} from "./login/login.component";
 import {RegisterComponent} from "./register/register.component";
 import {RouterGuard} from "./services/route-guard.service";
+import {CustomerEditComponent} from "./customer-edit/customer-edit.component";
 
 const APP_ROUTES: Routes = [
   {
@@ -22,7 +23,12 @@ const APP_ROUTES: Routes = [
   {
     path: 'register',
     component: RegisterComponent
+  },
+  {
+    path: 'edit-customer',
+    component: CustomerEditComponent
   }
+
 
 ];
 

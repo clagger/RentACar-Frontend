@@ -48,6 +48,32 @@ export class CustomerLoginService {
   }
 
 
+
+  refreshCustomerData(userName:string){
+    let headers = new Headers();
+    headers.set('Authorization', 'Bearer ' + this.getAccessToken());
+    let findbyMail = "/search/findByEmail";
+    let search = new URLSearchParams();
+    search.set('email', userName);
+    return new Promise((resolve, reject) => {
+      this.http.get(this.customersUrl + findbyMail, {
+        headers,
+        search
+      }).map(r => r.json()._embedded.customers[0]).subscribe(
+        (userInfo) => {
+          this._storage.removeItem("userInfo");
+          this._storage.setItem('userInfo', JSON.stringify(userInfo));
+          resolve(userInfo);
+        },
+        (err) => {
+          console.error('Error while refreshing user info', err);
+          reject(err);
+        }
+      );
+    });
+  }
+
+
   fetchTokenUsingPasswordFlowAndLoadUserProfile(userName: string, password: string) {
     return this
       .fetchTokenUsingPasswordFlow(userName, password)
@@ -99,7 +125,6 @@ export class CustomerLoginService {
       search.set('refresh_token', this._storage.getItem('refresh_token'));
 
       let headers = new Headers();
-      headers.set('Content-Type', 'application/x-www-form-urlencoded');
       headers.set('Content-Type', 'application/x-www-form-urlencoded');
       headers.set('Authorization', 'Basic ' + btoa(this.clientName + ":" + this.clientSecret));
 
