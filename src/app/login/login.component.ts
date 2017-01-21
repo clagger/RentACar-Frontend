@@ -14,12 +14,20 @@ export class LoginComponent {
 
   email:string;
   password:string;
+  message:string;
 
 
   login(){
-    this.customerLoginService.fetchTokenUsingPasswordFlowAndLoadUserProfile(this.email,this.password).then((response) => {//whether error or OK
+    this.customerLoginService.fetchTokenUsingPasswordFlowAndLoadUserProfile(this.email,this.password).then((response) => {
       console.log(this.customerLoginService.getUserInfos());
       this.router.navigateByUrl('/home')
+    }).catch((error) => {
+      // console.log(error);
+      this.message = "Error while trying to authenticate!";
+      setTimeout(function() {
+        this.message = "";
+        this.message = false;
+      }.bind(this), 3000);
     });
   }
 

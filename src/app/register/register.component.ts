@@ -36,11 +36,19 @@ export class RegisterComponent {
       .subscribe(customer => {
         this.message = "Account was created successfully!";
         this.success = true;
+          setTimeout(function() {
+            this.message = false;
+          }.bind(this), 3300);
+
         console.log(customer);
       },
         (error) => {
         this.message = "An Error occured while creating the account!";
         this.success = false;
+        setTimeout(function() {
+            this.message = false;
+          }.bind(this), 3300);
+
         console.log(error);
       });
 

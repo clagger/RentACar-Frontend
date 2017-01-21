@@ -17,7 +17,7 @@
     </div>
     <div class="main-login main-center">
       <!-- ALERT -->
-      <div [class.show]="message" [ngClass]="(success)? 'alert alert-success' : 'alert alert-danger'" class="step" role="alert">
+      <div *ngIf="(message)" [ngClass]="(success)? 'alert-success show' : 'alert alert-danger show'" class="alert step" role="alert">
         {{message}}
       </div>
       <!-- ALERT END -->

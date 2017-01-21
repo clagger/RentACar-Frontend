@@ -14,17 +14,17 @@
 <body>
 
 <div class="container">
-  <!-- ALERT -->
-  <div [class.show]="message" [ngClass]="(success)? 'alert alert-success' : 'alert alert-danger'" class="step" role="alert">
-    {{message}}
-  </div>
-  <!-- ALERT END -->
 
   <div class="omb_login">
-    <h2 class="omb_authTitle">Login OR <a [routerLink]="['/register']">Sign up</a></h2>
-
+    <h2 class="omb_authTitle">Login or <a [routerLink]="['/register']">Sign up</a></h2>
     <div class="row omb_row-sm-offset-3">
       <div class="col-xs-12 col-sm-6">
+        <!-- ALERT -->
+        <div [class.show]="message" [ngClass]="'alert alert-danger'" class="step" role="alert">
+          {{message}}
+        </div>
+        <!-- ALERT END -->
+
         <form #f="ngForm" class="omb_loginForm" autocomplete="on">
           <div class="input-group">
             <span class="input-group-addon"><i class="fa fa-user"></i></span>
