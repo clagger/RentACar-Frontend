@@ -1,5 +1,7 @@
 import {Component} from '@angular/core';
 import {CustomerLoginService} from "../services/customer-service/customer-login.service";
+import {Customer} from "../entities/customer";
+
 
 @Component({
   templateUrl: './home.component.html',
@@ -7,19 +9,13 @@ import {CustomerLoginService} from "../services/customer-service/customer-login.
 })
 export class HomeComponent {
 
+
   constructor(private customerLoginService:CustomerLoginService){
 
   }
 
-  email:string;
-  password:string;
 
-
-  login(){
-    this.customerLoginService.fetchTokenUsingPasswordFlowAndLoadUserProfile(this.email,this.password).then((response) => {//whether error or OK
-      console.log(this.customerLoginService.getUserInfos());
-    });
-  }
+  customerInfo: Customer = this.customerLoginService.getUserInfos();
 
 
 }

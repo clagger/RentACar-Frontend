@@ -15,7 +15,7 @@ import {RentedCarService} from "../services/rentedCar.service";
 export class  MyCarsComponent {
 
   public selectedCar : Car;
-  public customerId: number;
+
 
   constructor(private carService:CarService, private rentedCarService:RentedCarService) {
     this.carService.loadMyCars();

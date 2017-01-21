@@ -1,10 +1,14 @@
-
-<nav *ngIf="isLoggedIn" class="navbar navbar-default">
-  <ul class="nav navbar-nav">
-    <li><a routerLink="/home">Home</a></li>
-    <li><a routerLink="/car-search">Search Cars</a></li>
-    <li><a routerLink="/my-cars">My Cars</a></li>
-  </ul>
+<nav *ngIf="isLoggedIn" class="navbar navbar-default" role="navigation">
+  <div class="navbar-header">
+    <a routerLink="/home" type="button" class="btn btn-default navbar-btn">
+    <span class="glyphicon glyphicon-home"></span> Home</a>
+    <a routerLink="/car-search" type="button" class="btn btn-default navbar-btn">
+      <span class="glyphicon glyphicon-search"></span> Search Cars</a>
+    <a routerLink="/my-cars" type="button" class="btn btn-default navbar-btn">
+      <span class="glyphicon glyphicon-star-empty"></span> My Rented Cars</a>
+    <a routerLink="/login" (click)="logOut()" type="button" class="btn btn-default navbar-btn pull-right">
+      <span class="glyphicon glyphicon-log-out"></span> Log Out</a>
+  </div>
 </nav>
 
 <main class="container">

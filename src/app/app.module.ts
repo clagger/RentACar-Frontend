@@ -13,8 +13,9 @@ import {
 import { HomeComponent } from './home/home.component';
 import {CarSearchModule} from "./car-search/car-search.module";
 import {MyCarsModule} from "./my-cars/my-cars.module";
-import {HomeModule} from "./home/home.module";
-import {OAuthModule} from 'angular-oauth2-oidc';
+import {SharedModule} from "./shared/shared.module";
+import {LoginComponent} from "./login/login.component";
+import {RegisterComponent} from "./register/register.component";
 
 
 const BASE_URL_CARS_PRODUCTION = "https://localhost:8080/cars";
@@ -28,7 +29,9 @@ const CLIENT_APP_SECRET_PRODUCTION = "Pa$$w0rd";
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
+    HomeComponent,
+    LoginComponent,
+    RegisterComponent
 
   ],
   imports: [
@@ -38,7 +41,7 @@ const CLIENT_APP_SECRET_PRODUCTION = "Pa$$w0rd";
     AppRouterModule,
     CarSearchModule,
     MyCarsModule,
-    HomeModule
+    SharedModule
   ],
   providers: [
     {provide:BASE_URL_CARS, useValue: BASE_URL_CARS_PRODUCTION},
