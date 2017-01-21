@@ -1,4 +1,4 @@
-<nav *ngIf="isLoggedIn" class="navbar navbar-default" role="navigation">
+<nav [hidden]="!(isLoggedOn)" class="navbar navbar-default" role="navigation">
   <div class="navbar-header">
     <a routerLink="/home" type="button" class="btn btn-default navbar-btn">
     <span class="glyphicon glyphicon-home"></span> Home</a>
@@ -6,7 +6,7 @@
       <span class="glyphicon glyphicon-search"></span> Search Cars</a>
     <a routerLink="/my-cars" type="button" class="btn btn-default navbar-btn">
       <span class="glyphicon glyphicon-star-empty"></span> My Rented Cars</a>
-    <a routerLink="/login" (click)="logOut()" type="button" class="btn btn-default navbar-btn pull-right">
+    <a routerLink="/logout" (click)="logOut()" type="button" class="btn btn-default navbar-btn pull-right">
       <span class="glyphicon glyphicon-log-out"></span> Log Out</a>
   </div>
 </nav>

@@ -131,7 +131,6 @@ var CustomerLoginService = (function () {
         return JSON.parse(claims);
     };
     CustomerLoginService.prototype.getUserInfos = function () {
-        console.log(JSON.parse(this._storage.getItem("userInfo")));
         return JSON.parse(this._storage.getItem("userInfo"));
     };
     CustomerLoginService.prototype.hasValidAccessToken = function () {

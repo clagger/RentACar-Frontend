@@ -19,7 +19,7 @@ export class LoginComponent {
   login(){
     this.customerLoginService.fetchTokenUsingPasswordFlowAndLoadUserProfile(this.email,this.password).then((response) => {//whether error or OK
       console.log(this.customerLoginService.getUserInfos());
-      this.router.navigate(['home']);
+      this.router.navigateByUrl('/home')
     });
   }
 

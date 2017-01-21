@@ -9,16 +9,18 @@ import {Router} from "@angular/router";
 })
 export class AppComponent {
 
+  isLoggedOn:boolean;
+
   constructor(private customerLoginService:CustomerLoginService,private router:Router){
-
+    this.router.events.subscribe(() => { // <= This is needed in order to disable the nav-bar for login and register site
+      this.isLoggedOn = this.customerLoginService.isLoggedIn();
+    })
   }
-
-  isLoggedIn: boolean = this.customerLoginService.isLoggedIn();
 
 
   logOut() {
     this.customerLoginService.logOut();
-    this.router.navigate(['login']);
+    this.router.navigateByUrl('/login');
   }
 
 

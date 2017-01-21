@@ -167,7 +167,6 @@ export class CustomerLoginService {
   }
 
   getUserInfos() {
-    console.log(JSON.parse(this._storage.getItem("userInfo")));
     return JSON.parse(this._storage.getItem("userInfo"));
   }
 

@@ -15,7 +15,7 @@ var LoginComponent = (function () {
         var _this = this;
         this.customerLoginService.fetchTokenUsingPasswordFlowAndLoadUserProfile(this.email, this.password).then(function (response) {
             console.log(_this.customerLoginService.getUserInfos());
-            _this.router.navigate(['home']);
+            _this.router.navigate(['loggedIn']);
         });
     };
     LoginComponent = __decorate([
