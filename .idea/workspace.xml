@@ -5,14 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4896c565-f1c6-48e2-9def-be3f0c7687ab" name="Default" comment="">
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/app/my-cars/car-edit/car-edit.component.ts" afterPath="$PROJECT_DIR$/src/app/my-cars/car-edit/rent-edit.component.ts" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/entities/rentedCar.ts" afterPath="$PROJECT_DIR$/src/app/entities/rentedCar.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/my-cars/my-cars.component.html" afterPath="$PROJECT_DIR$/src/app/my-cars/my-cars.component.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/my-cars/my-cars.module.ts" afterPath="$PROJECT_DIR$/src/app/my-cars/my-cars.module.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/my-cars/my-cars.routes.ts" afterPath="$PROJECT_DIR$/src/app/my-cars/my-cars.routes.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/services/car.service.ts" afterPath="$PROJECT_DIR$/src/app/services/car.service.ts" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/services/rentedCar.service.ts" afterPath="$PROJECT_DIR$/src/app/services/rentedCar.service.ts" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/dist/" />
@@ -490,16 +483,16 @@
       <workItem from="1484746860577" duration="7804000" />
       <workItem from="1484816779548" duration="41000" />
       <workItem from="1484816840739" duration="21592000" />
-      <workItem from="1484910366854" duration="13888000" />
+      <workItem from="1484910366854" duration="14508000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="59060000" />
+    <option name="totallyTimeSpent" value="59680000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="TypeScript" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18229716" sideWeight="0.4947994" order="0" side_tool="false" content_ui="combo" />
@@ -510,7 +503,7 @@
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18229716" sideWeight="0.50520056" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936078" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24973656" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2708559" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2708559" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -643,6 +636,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
           <caret line="5" column="5" lean-forward="false" selection-start-line="5" selection-start-column="5" selection-end-line="5" selection-end-column="5" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -764,7 +758,7 @@
         <state relative-caret-position="255">
           <caret line="19" column="20" lean-forward="false" selection-start-line="19" selection-start-column="20" selection-end-line="19" selection-end-column="20" />
           <folding>
-            <element signature="e#47#100#0" expanded="true" />
+            <element signature="e#47#100#0" expanded="false" />
             <element signature="e#229#274#0" expanded="false" />
           </folding>
         </state>
