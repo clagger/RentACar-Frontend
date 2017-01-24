@@ -49,9 +49,11 @@ export class RentedCarService{
 
   deleteRentedCarEntry(rowID:number): void {
     let url = this.baseUrl+"/"+rowID;
+    let headers = new Headers();
+    headers.set('Authorization', this.customerLoginService.authorizationHeader());
 
     this.http
-      .delete(url)
+      .delete(url, {headers})
       .map(resp => resp.json())
       .subscribe(res => res,
                  error => console.log(error)

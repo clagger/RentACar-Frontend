@@ -48,16 +48,18 @@ export class CarService{
 
   }
   public findAll():void {
-      let url = this.baseUrl;
+    let url = this.baseUrl+"/search/findAllAvailableCars";
 
     let headers = new Headers();
     headers.set('Accept', 'application/json');
     headers.set('Authorization', this.customerLoginService.authorizationHeader());
 
+    let search = new URLSearchParams();
+    search.set('customer', this.customerLoginService.getUserInfos().id);
 
     this
       .http
-      .get(url, {headers})
+      .get(url, {headers, search})
       .map(resp => resp.json()["_embedded"]["cars"])
       .subscribe(
         (cars) => {
