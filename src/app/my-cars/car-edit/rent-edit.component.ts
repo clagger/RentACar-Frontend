@@ -71,5 +71,8 @@ export class RentEditComponent {
    )
 
 }
+  deleteEntry(car:Car) {
+    this.rentedCarService.getId(car.id);
+  }
 
 }

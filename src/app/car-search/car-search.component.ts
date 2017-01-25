@@ -16,7 +16,7 @@ export class CarSearchComponent {
   public selectedCar: Car;
   public leaseTime:number;
 
-  constructor(private carService: CarService, private rentedCarService: RentedCarService) {}
+  constructor(private carService: CarService, private rentedCarService: RentedCarService) {this.carService.findAll();}
 
   public get cars(): Array<Car> {
     return this.carService.cars;

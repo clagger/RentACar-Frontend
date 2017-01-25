@@ -5,11 +5,12 @@ import {BASE_URL_RENTEDCARS, BASE_URL_CARS, BASE_URL_CUSTOMERS} from "../app.tok
 import {Observable} from "rxjs";
 import {RentedCar} from "../entities/rentedCar";
 import {CustomerLoginService} from "./customer-service/customer-login.service";
+import {CarService} from "./car.service";
 
 @Injectable()
 export class RentedCarService{
 
-  rentedCarId:number;
+
 
   constructor(
     @Inject(BASE_URL_RENTEDCARS) private baseUrl: string,
@@ -22,7 +23,7 @@ export class RentedCarService{
 
 
 
-  getId(id:number): void {
+  getId(id:number): Observable<number> {
     let url = this.baseUrl + "/search/findRentedCarId";
     let search = new URLSearchParams();
     search.set('customer', this.customerLoginService.getUserInfos().id);
@@ -32,32 +33,24 @@ export class RentedCarService{
     headers.set('Accept', 'application/json');
     headers.set('Authorization', this.customerLoginService.authorizationHeader());
 
-    this
+    return this
       .http
       .get(url, {headers, search})
       .map(resp => resp.json())
-      .subscribe(id => {
-        this.rentedCarId = id;
-        this.deleteRentedCarEntry(this.rentedCarId);
-        location.reload();
-      },
-          error => console.log(error)
-      );
+
 
   }
 
 
-  deleteRentedCarEntry(rowID:number): void {
+  deleteRentedCarEntry(rowID:number): Observable<any> {
     let url = this.baseUrl+"/"+rowID;
     let headers = new Headers();
     headers.set('Authorization', this.customerLoginService.authorizationHeader());
 
-    this.http
+   return this.http
       .delete(url, {headers})
       .map(resp => resp.json())
-      .subscribe(res => res,
-                 error => console.log(error)
-      )
+
 }
 
 findRentedCar(car:string): Observable<RentedCar> {
