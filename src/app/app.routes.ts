@@ -4,6 +4,7 @@ import {LoginComponent} from "./login/login.component";
 import {RegisterComponent} from "./register/register.component";
 import {RouterGuard} from "./services/route-guard.service";
 import {CustomerEditComponent} from "./customer-edit/customer-edit.component";
+import {PageNotFoundComponent} from "./not-found-component/not-found.component";
 
 const APP_ROUTES: Routes = [
   {
@@ -27,6 +28,14 @@ const APP_ROUTES: Routes = [
   {
     path: 'edit-customer',
     component: CustomerEditComponent
+  },
+  {
+    path: '**',
+    redirectTo: '404'
+  },
+  {
+    path: '404',
+    component: PageNotFoundComponent
   }
 
 

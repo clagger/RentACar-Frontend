@@ -12,6 +12,11 @@ export class LoginComponent {
 
   }
 
+  ngOnInit(){
+    this.isLoggedIn = this.customerLoginService.isLoggedIn();
+  }
+
+  isLoggedIn:boolean;
   email:string;
   password:string;
   message:string;

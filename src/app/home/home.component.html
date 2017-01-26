@@ -2,11 +2,9 @@
   <div class="row">
     <div class="col-sm-10">
       <h1>Welcome, {{customerInfo.firstName}}</h1>
-
-      <button routerLink="/edit-customer" type="button" class="btn btn-success">Edit Informations</button>
       <br>
     </div>
-    <div class="col-sm-2"><img title="profile image" class="img-circle img-responsive" src="../../rent_a_car.jpg"></div>
+    <div class="col-sm-2"><img title="profile image" class="img-circle img-responsive" src="../../img/rent_a_car.jpg"></div>
   </div>
   <br>
   <div class="row">
@@ -20,6 +18,7 @@
         <li class="list-group-item text-right"><span class="pull-left"><strong>Address </strong></span> {{customerInfo.address}}</li>
         <li class="list-group-item text-right"><span class="pull-left"><strong>Driver License </strong></span> {{customerInfo.driverLicenseNumber}}</li>
       </ul>
+      <button routerLink="/edit-customer" type="button" class="btn btn-success">Edit Informations</button>
     </div>
 
     <div class="col-sm-9" contenteditable="false" style="">
