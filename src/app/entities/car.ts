@@ -9,4 +9,5 @@ export interface Car {
   transmission: string
   horsePower: number
   _links:string
+  leaseTime: number
 }

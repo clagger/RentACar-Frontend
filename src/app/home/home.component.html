@@ -24,31 +24,27 @@
     <div class="col-sm-9" contenteditable="false" style="">
       <div class="panel panel-default">
         <div class="panel-heading"><strong>{{customerInfo.firstName}}'s Rented Cars</strong></div>
-        <table class="table">
-          <thead>
+        <table  class="table table-striped table-bordered">
           <tr>
-            <th>Brand</th>
-            <th>Model</th>
-            <th>Kilometers</th>
-            <th>Transmission</th>
-            <th>Gas Type</th>
-            <th>Horse Power</th>
-            <th>Leased until</th>
-            <th>Lease Time</th>
+            <td><b>Brand</b></td>
+            <td><b>Model</b></td>
+            <td><b>Kilometers</b></td>
+            <td><b>Seatnumber</b></td>
+            <td><b>Gastype</b></td>
+            <td><b>Horsepower</b></td>
+            <td><b>Color</b></td>
+            <td><b>Lease Time</b></td>
           </tr>
-          </thead>
-          <tbody>
-          <tr class="success warning danger info">
-            <td>Success</td>
-            <td>Success</td>
-            <td>Success</td>
-            <td>Success</td>
-            <td>Success</td>
-            <td>Success</td>
-            <td>Success</td>
-            <td>Success</td>
+          <tr *ngFor="let c of cars">
+            <td>{{c.brand}}</td>
+            <td>{{c.model}}</td>
+            <td>{{c.kilometers}}</td>
+            <td>{{c.seatNumber}}</td>
+            <td>{{c.gasType}}</td>
+            <td>{{c.horsePower}}</td>
+            <td  [ngStyle]="{'background-color': c.color}"></td>
+            <td>{{c.leaseTime}}</td>
           </tr>
-          </tbody>
         </table>
       </div>
     </div>

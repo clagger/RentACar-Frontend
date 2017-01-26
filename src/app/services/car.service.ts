@@ -90,7 +90,7 @@ export class CarService{
 
   //load cars in My Cars Tab
   loadMyCars() {
-    let url = this.baseUrl+"/search/findByCustomer";
+    let url = "https://localhost:8080/carLeaseTimes/search/findByCustomer";
     let headers = new Headers();
     headers.set('Accept', 'application/json');
     headers.set('Authorization', this.customerLoginService.authorizationHeader());
@@ -102,7 +102,7 @@ export class CarService{
     this
       .http
       .get(url,{headers, search})
-      .map(resp => resp.json()["_embedded"]["cars"])
+      .map(resp => resp.json()["_embedded"]["carLeaseTimes"])
   .subscribe(
         (cars) => {
           this.cars = cars;
