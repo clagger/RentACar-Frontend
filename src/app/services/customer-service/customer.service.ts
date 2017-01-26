@@ -35,6 +35,9 @@ export class CustomerService {
 
 
   updateCustomer(updatedCustomer: Customer){
+    //remove password in order to prevent hashing of already hashed pw in the backend!
+    delete updatedCustomer.password;
+
     let updateUrl = this.baseUrl+"/"+this.customerLoginService.getUserInfos().id;
     let headers = new Headers();
     headers.set('Accept', 'application/json');
@@ -45,7 +48,7 @@ export class CustomerService {
     updatedCustomer.birthDate = datePipe.transform(updatedCustomer.birthDate, 'dd.MM.yyyy');
 
     return this.http
-      .put(updateUrl, updatedCustomer, {headers:headers})
+      .patch(updateUrl, updatedCustomer, {headers:headers}) //use patch for updating as PUT doesnt work with spring rest!
       .map(res => res.json());
   }
 
