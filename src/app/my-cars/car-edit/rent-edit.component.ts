@@ -65,6 +65,7 @@ export class RentEditComponent {
    .save(this.rentedCar)
    .subscribe((rentedCar) => {
    this.rentedCar = rentedCar;
+   this.carService.loadMyCars()
    },
      (error) => console.log(error)
 
