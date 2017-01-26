@@ -25,6 +25,7 @@ export class CarService{
       let url = this.baseUrl+"/search/findBy"+searchType;
 
       let search = new URLSearchParams();
+      search.set('customer', this.customerLoginService.getUserInfos().id);
       search.set(searchType.charAt(0).toLowerCase()+searchType.slice(1), searchValue);
 
       let headers = new Headers();
