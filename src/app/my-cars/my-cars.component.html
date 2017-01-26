@@ -16,7 +16,8 @@
     <td><b>Gastype</b></td>
     <td><b>Horsepower</b></td>
     <td><b>Color</b></td>
-    <td><b>Rent It!</b></td>
+    <td><b>Lease Time</b></td>
+    <td><b>Choose</b></td>
   </tr>
   <tr *ngFor="let c of cars" [ngStyle]="{ 'background-color': (c == selectedCar) ? 'orange' : ''  }">
     <td>{{c.brand}}</td>
@@ -26,6 +27,7 @@
     <td>{{c.gasType}}</td>
     <td>{{c.horsePower}}</td>
     <td  [ngStyle]="{'background-color': c.color}"></td>
+    <td>{{c.leaseTime}}</td>
     <td><button class="btn" (click)="select(c)">Auswählen</button></td>
   </tr>
 </table>
