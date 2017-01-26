@@ -15,6 +15,7 @@
     <td><b>Seatnumber</b></td>
     <td><b>Gastype</b></td>
     <td><b>Horsepower</b></td>
+    <td><b>Transmission</b></td>
     <td><b>Color</b></td>
     <td><b>Lease Time</b></td>
     <td><b>Choose</b></td>
@@ -26,6 +27,7 @@
     <td>{{c.seatNumber}}</td>
     <td>{{c.gasType}}</td>
     <td>{{c.horsePower}}</td>
+    <td>{{c.transmission.charAt(0) | uppercase}}{{c.transmission.slice(1)}} </td>
     <td  [ngStyle]="{'background-color': c.color}"></td>
     <td>{{c.leaseTime}}</td>
     <td><button class="btn" (click)="select(c)">Auswählen</button></td>

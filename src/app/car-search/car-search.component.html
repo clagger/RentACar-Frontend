@@ -46,6 +46,7 @@
     <td><b>Seatnumber</b></td>
     <td><b>Gastype</b></td>
     <td><b>Horsepower</b></td>
+    <td><b>Transmission</b></td>
     <td><b>Color</b></td>
     <td><b>Rent It!</b></td>
   </tr>
@@ -56,6 +57,7 @@
     <td>{{c.seatNumber}}</td>
     <td>{{c.gasType}}</td>
     <td>{{c.horsePower}}</td>
+    <td>{{c.transmission.charAt(0) | uppercase}}{{c.transmission.slice(1)}} </td>
     <td  [ngStyle]="{'background-color': c.color}"></td>
     <td><button class="btn" (click)="select(c)">Choose</button></td>
   </tr>
