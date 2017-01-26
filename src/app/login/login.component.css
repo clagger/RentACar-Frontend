@@ -86,3 +86,7 @@ opacity:0.9;
   opacity: 0;
   transition: 0.5s ease-in-out all;
 }
+
+.centerize{
+  text-align: center;
+}
