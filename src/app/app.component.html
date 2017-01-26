@@ -1,6 +1,6 @@
-<nav [hidden]="!(isLoggedOn)" class="navbar navbar-default" role="navigation">
+<nav [hidden]="router.isActive('/login') || router.isActive('/register') || router.isActive('/404')" class="navbar navbar-default" role="navigation">
   <div class="navbar-header">
-    <a routerLink="/home" type="button" class="btn btn-default navbar-btn">
+    <a routerLinkActive="active" routerLink="/home" type="button" class="btn btn-default navbar-btn">
     <span class="glyphicon glyphicon-home"></span> Home</a>
     <a routerLink="/car-search" type="button" class="btn btn-default navbar-btn">
       <span class="glyphicon glyphicon-search"></span> Search Cars</a>
