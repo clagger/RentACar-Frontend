@@ -2,7 +2,7 @@
 
 
 <div *ngIf="(success)" [ngClass]="(success)? 'alert-success show' : 'alert alert-danger show'" class="alert step" role="alert">
-  Your car was rented!
+  Car was successfully rented!
 </div>
 
   <div class = "form-group">
@@ -54,9 +54,9 @@
     <td><b>Horsepower</b></td>
     <td><b>Transmission</b></td>
     <td><b>Color</b></td>
-    <td><b>Rent It!</b></td>
+    <td><b>Action</b></td>
   </tr>
-  <tr *ngFor="let c of cars" [ngStyle]="{ 'background-color': (c == selectedCar) ? 'orange' : ''  }">
+  <tr *ngFor="let c of cars" [ngStyle]="{'background-color': (c == selectedCar) ? 'lightblue' : ''}">
     <td>{{c.brand}}</td>
     <td>{{c.model}}</td>
     <td>{{c.kilometers}}</td>
@@ -65,7 +65,7 @@
     <td>{{c.horsePower}}</td>
     <td>{{c.transmission.charAt(0) | uppercase}}{{c.transmission.slice(1)}} </td>
     <td  [ngStyle]="{'background-color': c.color}"></td>
-    <td><button class="btn" (click)="select(c)">Choose</button></td>
+    <td><button class="btn" (click)="select(c)">Rent Car</button></td>
   </tr>
 
     <div *ngIf="cars.length < 1">
@@ -74,16 +74,16 @@
 
 </table>
 
-<div *ngIf="selectedCar" class="input-group">
-  <p>Leasetime:</p>
+<div *ngIf="selectedCar" class="input-group car-search-prompt col-md-4">
+  <label>Leasetime:</label>
   <form #f="ngForm" novalidate>
   <input [(ngModel)]="leaseTime"
          name="leaseTime"
          id="leaseTime"
          pattern="^[1-9][0-9]*$"
          required
-         type="number"><p> Days</p>
-    <button [disabled]="!f.valid" class="btn btn-primary btn-success" (click)="rent(selectedCar, leaseTime)">Rent</button>
+         type="number"/> <label>Day(s)</label>
+  <button [disabled]="!f.valid" class="btn btn-primary btn-success" (click)="rent(selectedCar, leaseTime)">Rent</button>
   </form>
-  <span *ngIf="!f.valid">Lease time cannot be zero!</span>
+  <span *ngIf="f?.controls?.leaseTime?.hasError('pattern')">Lease time cannot be zero!</span>
 </div>

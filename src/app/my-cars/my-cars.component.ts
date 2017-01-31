@@ -11,7 +11,8 @@ import {RentedCar} from "../entities/rentedCar";
 
 @Component({
   selector: 'my-cars',
-  templateUrl: './my-cars.component.html'
+  templateUrl: './my-cars.component.html',
+  styleUrls: ['./my-cars.component.css']
 })
 
 export class  MyCarsComponent {
@@ -38,7 +39,6 @@ export class  MyCarsComponent {
 
 
   deleteEntry(car:Car) {
-    console.log(car.id);
     this
       .rentedCarService
       .findRentedCar(car.id.toString())
@@ -46,10 +46,9 @@ export class  MyCarsComponent {
           this.rentedCar = rentedCar;
           this.rentedCarService.deleteRentedCarEntry(rentedCar.id).subscribe((res) =>{
               this.carService.loadMyCars();
-              this.selectedCar = null;
-
               this.deleted = false;
-              this.message = "Car deleted!";
+              this.message = "The Car \"" + this.selectedCar.brand + " " + this.selectedCar.model + "\" has been deleted from your rented cars!";
+              this.selectedCar = null;
               setTimeout(function() {
                 this.message = null;
                 this.deleted = null;

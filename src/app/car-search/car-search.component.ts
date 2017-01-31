@@ -8,7 +8,8 @@ import {RentedCarService} from "../services/rentedCar.service";
 
 @Component({
   selector: 'car-search',
-  templateUrl: './car-search.component.html'
+  templateUrl: './car-search.component.html',
+  styleUrls: ['./car-search.component.css']
 })
 
 export class CarSearchComponent {

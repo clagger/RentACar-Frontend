@@ -15,9 +15,9 @@
     <td><b>Transmission</b></td>
     <td><b>Color</b></td>
     <td><b>Lease Time</b></td>
-    <td><b>Choose</b></td>
+    <td><b>Action</b></td>
   </tr>
-  <tr *ngFor="let c of cars" [ngStyle]="{ 'background-color': (c == selectedCar) ? 'orange' : ''  }">
+  <tr *ngFor="let c of cars" [ngStyle]="{ 'background-color': (c == selectedCar) ? 'lightblue' : ''  }">
     <td>{{c.brand}}</td>
     <td>{{c.model}}</td>
     <td>{{c.kilometers}}</td>
@@ -27,16 +27,20 @@
     <td>{{c.transmission.charAt(0) | uppercase}}{{c.transmission.slice(1)}} </td>
     <td  [ngStyle]="{'background-color': c.color}"></td>
     <td>{{c.leaseTime}} days</td>
-    <td><button class="btn" (click)="select(c)">Auswählen</button></td>
+    <td><button class="btn" (click)="select(c)"><span class="glyphicon glyphicon-cog"></span></button></td>
   </tr>
+
+  <div *ngIf="cars.length < 1">
+    You have no rented cars at the moment!
+  </div>
+
 </table>
 
 
-<div class="row">
-  <div *ngIf="selectedCar" class="col-md-1"><button class="btn"class="btn btn-warning" [routerLink]="['/rent-edit', selectedCar.id]">Edit</button></div>
-  <div  *ngIf="selectedCar" class="col-md-1"><button class="btn"class="btn btn-danger" (click)="deleteEntry(selectedCar)" >Delete</button></div>
-
-
-
+<div *ngIf="selectedCar" class="col-md-2 mycars-actions">
+    <h4>Actions:</h4>
+    <button class="btn"class="btn btn-warning" [routerLink]="['/rent-edit', selectedCar.id]">Edit</button> <button
+    class="btn"class="btn btn-danger" (click)="deleteEntry(selectedCar)" >Delete</button>
 </div>
+
 
