@@ -2,6 +2,7 @@ import {Http, URLSearchParams, Headers} from "@angular/http";
 import {Inject, Injectable} from "@angular/core";
 import {BASE_URL_CUSTOMERS, BASE_URL_OAUTH2_TOKEN_REQUEST, CLIENT_APP_NAME, CLIENT_APP_SECRET} from "../../app.tokens";
 import {isNullOrUndefined} from "util";
+import {userInfo} from "os";
 
 
 @Injectable()
@@ -31,7 +32,7 @@ export class CustomerLoginService {
       let search = new URLSearchParams();
       search.set('email', userName);
 
-      this.http.get(this.customersUrl+findbyMail, { headers, search }).map(r => r.json()._embedded.customers[0]).subscribe(
+      this.http.get(this.customersUrl+findbyMail, { headers, search }).map(r => r.json()).subscribe(
         (userInfo) => {
           console.debug('userinfo received', userInfo);
           this._storage.setItem('userInfo', JSON.stringify(userInfo));
