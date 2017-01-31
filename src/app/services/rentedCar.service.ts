@@ -84,7 +84,7 @@ save (rentedCar:RentedCar): Observable<RentedCar> {
     .map(resp => resp.json());
 }
 
-saveNewEntry(carId:string, leaseTime:number):void{
+saveNewEntry(carId:string, leaseTime:number):Observable<any>{
   let url = this.baseUrl;
 
   let car = this.carUrl+"/"+carId;
@@ -94,10 +94,10 @@ saveNewEntry(carId:string, leaseTime:number):void{
   headers.set('Accept', 'application/json');
   headers.set('Authorization', this.customerLoginService.authorizationHeader());
 
-   this
+   return this
     .http
     .post(url,{car, customer,leaseTime}, {headers})
-    .map(resp => resp.json()).subscribe();
+    .map(resp => resp.json());
 }
 
 }

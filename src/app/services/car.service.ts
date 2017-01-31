@@ -25,7 +25,6 @@ export class CarService{
       let url = this.baseUrl+"/search/findBy"+searchType;
 
       let search = new URLSearchParams();
-      search.set('customer', this.customerLoginService.getUserInfos().id);
       search.set(searchType.charAt(0).toLowerCase()+searchType.slice(1), searchValue);
 
       let headers = new Headers();
@@ -55,12 +54,10 @@ export class CarService{
     headers.set('Accept', 'application/json');
     headers.set('Authorization', this.customerLoginService.authorizationHeader());
 
-    let search = new URLSearchParams();
-    search.set('customer', this.customerLoginService.getUserInfos().id);
 
     this
       .http
-      .get(url, {headers, search})
+      .get(url, {headers})
       .map(resp => resp.json()["_embedded"]["cars"])
       .subscribe(
         (cars) => {

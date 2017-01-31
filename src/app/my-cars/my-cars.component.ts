@@ -20,9 +20,11 @@ export class  MyCarsComponent {
 
  public rentedCar: RentedCar;
 
+ public message:string;
+ public deleted:boolean;
+
   constructor(private carService:CarService, private rentedCarService:RentedCarService) {
     this.carService.loadMyCars();
-
   }
 
 
@@ -44,6 +46,14 @@ export class  MyCarsComponent {
           this.rentedCar = rentedCar;
           this.rentedCarService.deleteRentedCarEntry(rentedCar.id).subscribe((res) =>{
               this.carService.loadMyCars();
+              this.selectedCar = null;
+
+              this.deleted = false;
+              this.message = "Car deleted!";
+              setTimeout(function() {
+                this.message = null;
+                this.deleted = null;
+              }.bind(this), 3300);
             },
 
             error => console.log(error)
