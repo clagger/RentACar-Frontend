@@ -29,7 +29,7 @@
     <td>{{c.horsePower}}</td>
     <td>{{c.transmission.charAt(0) | uppercase}}{{c.transmission.slice(1)}} </td>
     <td  [ngStyle]="{'background-color': c.color}"></td>
-    <td>{{c.leaseTime}}</td>
+    <td>{{c.leaseTime}} days</td>
     <td><button class="btn" (click)="select(c)">Auswählen</button></td>
   </tr>
 </table>

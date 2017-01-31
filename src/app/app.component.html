@@ -1,4 +1,4 @@
-<nav [hidden]="router.isActive('/login') || router.isActive('/register') || router.isActive('/404')" class="navbar navbar-default" role="navigation">
+<nav [hidden]="!isLoggedIn() || (router.isActive('/login') || router.isActive('/register') || router.isActive('/404'))" class="navbar navbar-default" role="navigation">
   <div class="navbar-header">
     <a routerLinkActive="active" routerLink="/home" type="button" class="btn btn-default navbar-btn">
     <span class="glyphicon glyphicon-home"></span> Home</a>

@@ -69,9 +69,16 @@
 
 </table>
 
-<div *ngIf="selectedCar" class="row">
+<div *ngIf="selectedCar" class="input-group">
   <p>Leasetime:</p>
+  <form #f="ngForm" novalidate>
   <input [(ngModel)]="leaseTime"
-         name="leaseTime">
- <button class="btn" (click)="rent(selectedCar, leaseTime)">Rent</button>
+         name="leaseTime"
+         id="leaseTime"
+         pattern="^[1-9][0-9]*$"
+         required
+         type="number"><p> Days</p>
+    <button [disabled]="!f.valid" class="btn btn-primary btn-success" (click)="rent(selectedCar, leaseTime)">Rent</button>
+  </form>
+  <span *ngIf="!f.valid">Lease time cannot be zero!</span>
 </div>
