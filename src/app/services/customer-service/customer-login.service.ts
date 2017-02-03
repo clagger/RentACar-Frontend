@@ -60,7 +60,7 @@ export class CustomerLoginService {
       this.http.get(this.customersUrl + findbyMail, {
         headers,
         search
-      }).map(r => r.json()._embedded.customers[0]).subscribe(
+      }).map(r => r.json()).subscribe(
         (userInfo) => {
           this._storage.removeItem("userInfo");
           this._storage.setItem('userInfo', JSON.stringify(userInfo));
